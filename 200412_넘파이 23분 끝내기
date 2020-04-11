@@ -1,0 +1,174 @@
+#https://www.youtube.com/watch?v=OIV14ItViP0&t=10s
+#유튜버: datasciencelim
+
+import numpy as np
+
+a = np.arange(21)
+print(a)
+
+b = a.reshape(3,7)
+print(b)
+print(a.shape)
+print(b.shape)
+print(a.ndim)
+print(b.ndim)
+
+print(a.dtype.name)
+print(type(a)) # 어레이 타입
+c = np.array([(1,2,3),(4,5.5,6)])
+print(c)
+print(c.dtype)
+d = np.array([(1,2,3),(4,5.5,6)], dtype=int)  # int 타입으로 전체 변경
+print(d)
+d = np.zeros((3,5))   # 0로 채워라
+print(d)
+d = np.ones((3,5))  # 1로 채워라
+print(d)
+d = np.full((3,3),777.7) #3,3 행열로 777.7 전체를 채워라
+print(d)
+d= np.arange(1,20,2) # 1, 20 사이에 2간격으로 뽑아라
+print(d)
+d = np.arange(1,20,1.9) # 1,20 사이에 1.9 간격으로 산출
+print(d)
+d = np.linspace(0,10,11) # 시작0 / 끝11 점을 정하고 등간격으로 11개 뽑아라
+print(d)
+d = np.linspace(0,10,4) # 시작0 / 끝11 점을 정하고 등간격으로 4개 뽑아라
+print(d)
+
+e = np.array([1,2,3,4])
+f = np.arange(4)
+print(e)
+print(f)
+print(e*f)
+print(e-f)
+print(e*3)
+print(e**3)
+g = np.arange(9).reshape(3,3) # 3*3으로 변경
+print("ggggggggggggggggggggggggggggggggggg")
+print(g)
+h = np.arange(9).reshape(3,3) + 1 # 각 위치에 1을 더한다
+print(h)
+print(g*h)
+print(g**2) # g의 지수
+print(g**h)  # g ^^h의 지수 ~~
+print(g.dot(h)) # 원래 배웠던 행열의 곱
+print(np.dot(g,h)) # 위에랑 똑같은 의미
+print(g>3)
+print("IIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+i = np.array([[[[1,2],[3,4]]]],dtype=np.float64)
+print(i)
+print(i.dtype)
+print(i.ndim)
+print("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ")
+j = np.random.random((5,2))
+print(j)
+print(j.min())
+print(j.max())
+print(j.mean())
+print(j.sum())
+print(j.sum(axis=1))  # 1 열 방향으로 합을 해라 ★★★★★★★
+print(np.exp(j))  # exp 계산 해준다 ★★★★★★★
+print(np.sqrt(j))
+print(np.add(j,j))
+print(np.sin(j))
+print(np.sin(j[0,0])) # 특정 위치의 요소를 불러올떄
+print("====================================================")
+print(j)
+print("====================================================")
+print(j[3])
+print(j[3:])  # : 이후의 것들 모두
+print(j[:3]) # 3을 포함하지않는 행까지 0,1,2행
+print(j[:3,:1]) # 0,1,2행 + 0열
+print(j[:3,1]) # 0,1,2 행 + 1 열
+print(j[0,1])
+j[0,1]=9999
+print(j)
+print("===============")
+for i in j[1:3]:
+    print("공백")
+    print(i)
+def multiplier(x,y):
+    return x*y
+k = np.arange(5)
+print(multiplier(k,k))
+def biggerThanZero(x):
+    if x>0:
+        return True
+    else:
+        return False
+l = np.arange(100)-39
+print(i)
+print(biggerThanZero(l.sum()))
+m = np.arange(18).reshape(3,3,2) # 3*3*2 = 18 맞아 떨어 진다 3차원
+print(m)
+print(m[1,2])
+print(m[1,2,1])
+print(m[:,1,:])   #중간값 1만 선택
+print(m[2,...])
+for i in m:
+    print("공백")
+    print(i)
+for i in m.flat:
+    print("공백")
+    print(i)
+
+print(m.shape)
+n = m.reshape(2,9)
+print(n)
+print(n.T)
+print(n.shape)
+print(n.resize(3,6))
+print(n.reshape(6,-1))  # 6행만 지정하고 알아서 바꿔라 (자동 변경)
+print(np.vstack((n,n)))
+print(np.hstack((n,n)))
+print("nnnnnnnnnnnnnnnnnnnnnnn")
+print(n)
+print("0===========================")
+print(np.stack((n,n),axis = 0))
+print("1===========================")
+print(np.stack((n,n),axis = 1))
+print("2===========================")
+print(np.stack((n,n),axis = 2))
+
+print("oooooooooooooooooooooooooooooo")
+o = np.hstack((n,n))
+p,q,r = np.hsplit(o,3)
+print(p)
+print(q)
+print(r)
+print("--------------------------------------")
+s,t,u = np.hsplit(o,(2,4))  #2,4 위치에서 나누겠다 ★★★★★★
+print(s)
+print(t)
+print(u)
+
+print(t==s)
+print(t is s)
+print(t is t)
+print(id(t))
+print(id(q))
+print(id(r))
+print(type(t))
+print(d.dtype)
+u = np.arange(10)
+print(u)
+v = [x*2 for x in u if x %2==0]  # u의 인자를 x에 넣어서 2배를 해라, 만약에 x를 2로 나눠서 0이면
+print(v)
+
+import matplotlib.pyplot as plt
+w = np.arange(0,20*np.pi, 0.1)
+x = np.tan(w)
+y = np.arange(0,20*np.pi,0.1)
+
+z_s = np.sin(y)
+z_c = np.cos(y)
+z_t = np.tan(y)
+print(z_t)
+
+plt.plot(y,z_s)
+plt.plot(y,z_c)
+plt.plot(y,z_t)
+
+plt.title("Test")
+plt.legend(["sin","cosin","tangent"])
+plt.show()
