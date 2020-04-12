@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+csv_path = "./test3.csv"
+raw = np.loadtxt(csv_path, delimiter=",", dtype=np.float32)
+a = raw[:,1:]
+b = raw[:,0:-1]
+c = a - b
+d = c[:,1:]
+e = c[:,0:-1]
+f = d+e
+g = np.abs(f)
+h = np.exp(g) # 지수 합수
+j = g.mean(axis=0)
+index = np.arange(len(j))
+
+fig = plt.figure(figsize=(10,9))
+ax1 = fig.add_subplot(2,1,1)
+ax1 = sns.heatmap(g,cbar=False, vmax=50)
+ax2 = fig.add_subplot(2,1,2)
+# ax2 = plt.plot(index, j)
+ax2 = plt.bar(index, j)
+plt.tight_layout()
+plt.show()
+
+# a.plot.barh(figsize=(10,9))
+# ax = sns.heatmap(g,cbar=True,vmax=50)
